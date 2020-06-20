@@ -19,7 +19,7 @@ export const fetchProductsAsync = () => {
 		dispatch(fetchProductsStart());
 		try {
 			const response = await fetch(
-				"http://www.mocky.io/v2/5e9ebdaa2d00007800cb7697"
+				"https://www.mocky.io/v2/5e9ebdaa2d00007800cb7697"
 			).then((res) => res.json());
 			dispatch(
 				fetchProductsSuccess({
