@@ -1,0 +1,27 @@
+.product {
+	flex-basis: 260px;
+}
+
+.product-header {
+	height: 17rem;
+}
+
+.image-container {
+	width: 100%;
+	height: 10rem;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.product-title {
+	font-size: 0.9rem;
+	margin-top: 1.5rem;
+}
+
+.product-price {
+	font-size: 0.8rem;
+}
+
+.old-price {
+	text-decoration: line-through;
+}
