@@ -43,7 +43,23 @@ export const selectProductsList = createSelector(
 
 export const selectFeaturesList = createSelector(
 	[selectProducts],
-	(products) => products.featuresList
+	(products) => {
+		if (products.showDifferences && products.productIdsToCompare.length > 1) {
+			return products.featuresList.map((f) => {
+				const features = f.features.filter((list) => {
+					return !products.productIdsToCompare.every(
+						(feat) =>
+							list.values[feat] === list.values[products.productIdsToCompare[0]]
+					);
+				});
+				return {
+					...f,
+					features,
+				};
+			});
+		}
+		return products.featuresList;
+	}
 );
 
 export const selectShowDifferences = createSelector(

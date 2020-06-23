@@ -2,8 +2,8 @@ import React from "react";
 
 import "./style.css";
 
-const FeatureTableHeader = ({ productsToCompare, title }) => {
-	return (
+const FeatureTableHeader = ({ productsToCompare, title, isVisible }) => {
+	return isVisible ? (
 		<tr>
 			<th className='feature-title border-right'>{title}</th>
 			<th
@@ -20,12 +20,13 @@ const FeatureTableHeader = ({ productsToCompare, title }) => {
 				}`}></th>
 			<th className='feature-title'></th>
 		</tr>
-	);
+	) : null;
 };
 
 FeatureTableHeader.defaultProps = {
 	productsToCompare: [],
 	title: "",
+	isVisible: true,
 };
 
 export default FeatureTableHeader;

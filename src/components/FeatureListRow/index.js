@@ -27,6 +27,7 @@ const FeatureListRow = ({
 					<FeatureTableHeader
 						productsToCompare={selectedProductDetails}
 						title={feature.title}
+						isVisible={!!feature.features.length}
 					/>
 					{feature.features.map((f) => (
 						<tr key={f.featureName}>
@@ -37,11 +38,7 @@ const FeatureListRow = ({
 								<td
 									key={product.id}
 									className='feature-description border-right'>
-									{showDifferences &&
-									product.id !== anchorProductId &&
-									f.values[anchorProductId] === f.values[product.id]
-										? ""
-										: f.values[product.id]}
+									{f.values[product.id] || "-"}
 								</td>
 							))}
 						</tr>
